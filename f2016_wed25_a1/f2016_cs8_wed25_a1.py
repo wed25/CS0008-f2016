@@ -53,8 +53,8 @@ h = format(consumption_quantity_Metric, '.3f')
 
 # print the final format output
 print('                                       USC                     Metric')
-print('Distance______________:         ' + c + 'miles              ' + d + 'km')
-print('Gas___________________:         ' + e + 'gallons            ' + f + 'Liters')
-print('Consumption___________:         ' + g + '   mpg                ' + h + '1/100KM')
+print('Distance______________:         ' + c + ' miles                ' + d + ' km')
+print('Gas___________________:         ' + e + ' gallons              ' + f + ' Liters')
+print('Consumption___________:         ' + g + '   mpg                 ' + h + '  1/100KM')
 print('Gas Consumption Rating:         ' + Rating)
 
