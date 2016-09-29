@@ -1,0 +1,11 @@
+/System/Library/Frameworks/Python.framework/Versions/2.6/bin/python2.6 /Users/dongweiqi/GitHub/CS0008-f2016/f2016_wed25_a1/f2016_cs8_wed25_a1.py
+Which system you use either a or b: a
+Enter the distance driven: 1000
+Enter the amount of gasoline was used: 100
+                                       USC                     Metric
+Distance______________:         1000.000miles              1609.340km
+Gas___________________:         100.000gallons            378.541Liters
+Consumption___________:         10.000   mpg                23.5221/100KM
+Gas Consumption Rating:         extremely poor
+
+Process finished with exit code 0
