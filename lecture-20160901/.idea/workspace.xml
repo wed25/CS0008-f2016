@@ -62,13 +62,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/f2016_cs8_wed25_a1.py" />
         <option value="$PROJECT_DIR$/f2016_cs8_wed25_01.readme.txt" />
+        <option value="$PROJECT_DIR$/f2016_cs8_wed25_a1.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="216" />
+    <option name="x" value="280" />
     <option name="y" value="35" />
     <option name="width" value="1166" />
     <option name="height" value="728" />
@@ -275,7 +275,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="216" y="35" width="1166" height="728" extended-state="0" />
+    <frame x="280" y="35" width="1166" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3048035" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

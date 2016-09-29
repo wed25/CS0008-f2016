@@ -53,4 +53,3 @@ print("'Consumption____' + format(consumption_quantity_USC, '.3f') + format(cons
 print('Gas Consumption Rating: ', Rating)
 
 format(width.3f)
-x = format)()
