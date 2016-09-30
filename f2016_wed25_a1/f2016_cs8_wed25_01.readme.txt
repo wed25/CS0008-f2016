@@ -38,11 +38,11 @@ with the given mathematical conversion equations:
 'gasoline_quantity_Metric = 3.78541 * gasoline_quantity_USC'
 
 2.1.3
-Then use 'distance_quantity_original' and 'gasoline_quantity_original' variables
+Then use 'distance_quantity_USC' and 'gasoline_quantity_USC' variables
 to calculate the 'consumption_quantity_USC' by the given formula.
 'consumption_quantity_USC = distance_quantity_USC / gasoline_quantity_USC'
 
-And use  'distance_quantity_convert' and 'gasoline_quantity_convert' variables
+And use  'distance_quantity_Metric' and 'gasoline_quantity_Metric' variables
 to calculate the 'consumption_quantity_Metric' by the given formula
 'consumption_quantity_Metric = 100 * gasoline_quantity_Metric / distance_quantity_Metric'
 
@@ -86,7 +86,7 @@ else
 
 3. Output
 3.1
-I format allvariables with quantities  as floats with 3 decimals
+I format all variables with quantities as floats with 3 decimals
 
 3.2
-Use print funtion to print all the variables in final format
+Use print function to print all the variables in final format

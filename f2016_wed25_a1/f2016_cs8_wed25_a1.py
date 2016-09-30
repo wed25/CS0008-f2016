@@ -12,10 +12,13 @@ original_unit = input('Which system you use either a or b: ')
 distance_quantity_original = float(input('Enter the distance driven: '))
 gasoline_quantity_original = float(input('Enter the amount of gasoline was used: '))
 
-#I use the if-else statement to
-#convert the quantity provided by the user in the other units system,
+
+
+#The goal is to convert the quantity provided by the user in the other units system,
 #calculate the fuel consumption in both units,
 #and get the rating information
+#Since the conversions are different between USC to Metric and Metric to USC,
+# I use if-else statement to calculate it separately
 if original_unit == a:
     distance_quantity_USC = distance_quantity_original
     gasoline_quantity_USC = gasoline_quantity_original
@@ -31,7 +34,7 @@ else:
     consumption_quantity_USC = distance_quantity_USC / gasoline_quantity_USC
     consumption_quantity_Metric = 100 * gasoline_quantity_Metric / distance_quantity_Metric
 
-#I use the if statement to get the rating categories
+#I use the if statement to get the rating categories for the consumption quantity in Metric unit
 if consumption_quantity_Metric > 20:
     Rating = 'extremely poor'
 elif consumption_quantity_Metric > 15 and consumption_quantity_Metric <= 20:
