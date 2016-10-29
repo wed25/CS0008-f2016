@@ -1,1 +1,103 @@
-svnn
+Since the goal of this program is to ask users to enter the name of a text file indefinitely,
+I use while(true) loop to execute the main process indefinitely
+And I also define two functions before while loop to help execute the process of processing file and formatting result
+
+
+1. processFile function
+At the beginning, I define processFile function
+
+1.1 Define global variables
+I declare total_total_counter and total_total_distance as two global variables at first
+
+1.2 Define function
+1.2.1 Opening a File
+I use the open function in Python to open a file
+file_object is the name of variable that will reference the file object
+the mode the file will be opened is reading
+
+1.3.2 Printing words
+Then I call back printKV function, which I will define it below, to print the words 'File to be read' with the file name
+
+1.3.3 using for loop to accumulate counting number
+First I initialize two variables, which are partial_total_counter and partial_total_distance.
+Then I use for loop to do the counting process
+The variable 'partial_total_counter' will accumulate one to itself each time.
+The variable 'partial_total_distance' will accumulate new distance data to itself.
+When reading each line, split the data in a line to read distance value.
+After that I also strip the new lines from the field and change string type to float type
+After finishing reading all lines in the file, I close the file
+
+1.3.4 accumulate total counter and total distance
+After accumulating numbers of partial counter and partial distance for each file, I also accumulate total counter
+and total distance for all files
+
+1.4 return data
+At the end of the function, the function will return two variables outside this function.
+The first data is how many lines the file has
+The second one is the total distance of each record
+
+2. Define printKV(key,value,klen=0) function
+Before declare the main process, I also define another function
+This function is to format results
+
+2.1 initialize value
+First, I initialize the value of variable 'Value_format'.
+This variable is to format value I got from processFile function
+
+2.2 Define the format of key and value
+I define key_format variable to format the key words before values
+I let all key words have left alignment, and also restrict the max length of keywords to be 25
+
+I also define Value_format to format values
+Since the values will be one of three types, which are string, integer, and float,
+I use isinstance function to category these three types and format them.
+I also use if-elif logic to category these three conditions, which are written by isinstance function
+If the value is string type, I restrict the length of it to be 20 spaces long
+If the value is float type, I restrict the length of it to be 10 spaces long with 3 decimals
+If the value is integer type, I restrict the length of it to be 10 spaces long
+
+2.3 print
+After define two variables - 'Value_format' and 'key_format', I use print function to print them together in a line
+
+2.4 return
+At the end the function, since there is no requirement to return variables, I just leave return at the end
+
+3. while(true) loop
+I use while(true) statement,
+since while statement takes an expression and executes the loop body while the expression evaluates to boolean 'true'.
+'true' always evaluates to boolean 'true' and thus executes the loop body indefinitely
+
+3.1 input file name
+I assign the input of file name to variable "file_name", and ask the user to enter the file name
+
+3.2 if-else to check whether the users want to quit the program
+Then I define three variables of conditions in order to check whether users want to stop counting datas in the files.
+The three conditions are 'condition1 = "" ', 'condition2 = "quit" ', 'condition3 = 'q''.
+If file_name satisfies one of conditions,
+the program will stop and print the total accumulated number of lines and total distance run of all files
+I use printKV function to print the key words of introducing these values and these accumulated values at the end
+
+If file_name does not satisfy any of those conditions,
+it will go to else and call back processFile function to accumulate the counting number inside each files
+And I use printKV to print partial total number of lines and partial total distance run for each files
+
+This process will keep going indefinitely
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
