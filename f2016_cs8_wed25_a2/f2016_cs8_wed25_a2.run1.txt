@@ -1,1 +1,22 @@
-gjhgjhjh
+/usr/local/bin/python3.5 /Users/dongweiqi/GitHub/CS0008-f2016/f2016_cs8_wed25_a2/f2016_cs8_wed25_a2.py
+Please type the file name
+f2016_cs8_a2.data.1.csv
+
+File to be read          :f2016_cs8_a2.data.1.csv
+Partial Total # of Lines :50
+Partial Total distance run:2298.967
+
+Please type the file name
+f2016_cs8_a2.data.2.csv
+File to be read          :f2016_cs8_a2.data.2.csv
+Partial Total # of Lines :50
+Partial Total distance run:2195.061
+
+Please type the file name
+quit
+File to be read          :quit
+
+Totals
+Total # of lines         :100
+Total distance run       :4494.027
+Please type the file name
