@@ -16,8 +16,7 @@ def processFile(fh):
     global total_line
     global total_distance
     global Total_Multiple_record
-    global Max_run
-    global Min_run
+
 
     file_object = open(fh,'r')
     for line in file_object:
@@ -42,7 +41,8 @@ def processFile(fh):
     return
 
 def Max_Min(file_line):
-    global Max_run,Min_run
+    global Max_run
+    global Min_run
 
     file_line[1] = float(str(file_line[1]).rstrip("\n"))
     if len(Max_run)>0 and len(Min_run)>0:
