@@ -8,11 +8,16 @@ output_file = {}
 total_line = 0
 total_distance = 0
 total_file_read = 0
+Total_Multiple_record = 0
+
 
 
 def processFile(fh):
     global total_line
     global total_distance
+    global Total_Multiple_record
+    global Max_run
+    global Min_run
 
     file_object = open(fh,'r')
     for line in file_object:
@@ -22,34 +27,33 @@ def processFile(fh):
             total_distance += float(file_line[1].rstrip('\n'))
 
 
-            Max_Min(outputFile(file_line))
+            if file_line[0] in output_file:
+                if output_file[file_line[0]][0] == 0:
+                    Total_Multiple_record += 1
+                output_file[file_line[0]][0] += 1
+                output_file[file_line[0]][1] += float(file_line[1].rstrip('\n'))
+
+            output_file[file_line[0]] = [0, float(file_line[1].rstrip('\n'))]
+
+            Max_Min(file_line)
+
 
     file_object.close()
-
-
-def outputFile(file_line):
-    global Total_Multiple_record
-
-    if file_line[0] in output_file:
-        output_file[file_line[0]][0] += 1
-        output_file[file_line[0]][1] += float(file_line[1].rstrip('\n'))
-        Total_Multiple_record += 1
-
-    output_file[file_line[0]] = [0, float(file_line[1].rstrip('\n'))]
-
-    return file_line
-
-def Max_Min(file_line):
-    global Max_run
-    global Min_run
-
-    file_line[1] = float(str(file_line[1]).rstrip("\n"))
-    if float(file_line[1]) > float(Max_run[1]):
-        Max_run = file_line
-    elif float(file[1])< float(Min_run[1]):
-        Min_run = file_line
     return
 
+def Max_Min(file_line):
+    global Max_run,Min_run
+
+    file_line[1] = float(str(file_line[1]).rstrip("\n"))
+    if len(Max_run)>0 and len(Min_run)>0:
+        if float(file_line[1]) > float(Max_run[1]):
+            Max_run = file_line
+        elif float(file_line[1]) < float(Min_run[1]):
+            Min_run = file_line
+        return
+    Max_run = file_line
+    Min_run = file_line
+    return
 
 
 
@@ -85,8 +89,9 @@ in_file.close()
 while(len(file_name_list)>0):
 
     total_file_read +=1
+    file_name = file_name_list.pop()
 
-    processFile(file_name_list.pop())
+    processFile(file_name)
 
 
 printKV("Number of input files read",total_file_read, 30 )
