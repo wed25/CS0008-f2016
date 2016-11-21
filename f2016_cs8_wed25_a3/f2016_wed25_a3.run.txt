@@ -8,6 +8,6 @@ Min distance run              :0.05789
     by participant            :Alex                                    
 Total number of participants  :388                                     
 Number of participants
-with multiple record          :62                                      
+with multiple record          :60                                      
 
 Process finished with exit code 0
