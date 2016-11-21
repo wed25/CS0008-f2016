@@ -18,7 +18,7 @@ def processFile(fh):
     global Total_Multiple_record
 
 
-    file_object = open(fh,'r')
+    
     for line in file_object:
         if (line.split(",")[0] != "name"):
             file_line = line.split(",")
@@ -37,7 +37,7 @@ def processFile(fh):
             Max_Min(file_line)
 
 
-    file_object.close()
+   
     return
 
 def Max_Min(file_line):
@@ -90,9 +90,17 @@ while(len(file_name_list)>0):
 
     total_file_read +=1
     file_name = file_name_list.pop()
+    
+    file_object = open(file_name,'r')
 
     processFile(file_name)
+    file_object.close()
 
+f = open("f2016_cs8_wed25_a3.data.output.csv", 'w')
+for item, value in output_file.items():
+    f.write(str(item)+','+str(value[0])+','+str(value[1])+'\n')
+
+f.close()
 
 printKV("Number of input files read",total_file_read, 30 )
 printKV("Total number of Lines read",total_line, 30)
