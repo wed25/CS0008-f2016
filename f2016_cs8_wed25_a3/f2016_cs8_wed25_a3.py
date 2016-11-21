@@ -1,45 +1,54 @@
 
-
+#create the empty list and dictionary 
 file_name_list = []
 Max_run = []
 Min_run = []
 output_file = {}
 
+#initialize the variables 
 total_line = 0
 total_distance = 0
 total_file_read = 0
 Total_Multiple_record = 0
 
 
-
+#create the function to do the main processing 
 def processFile(fh):
     global total_line
     global total_distance
     global Total_Multiple_record
 
 
-    
+    #use for loop to calculate the total number of line and total distance 
     for line in file_object:
         if (line.split(",")[0] != "name"):
             file_line = line.split(",")
             total_line += 1
             total_distance += float(file_line[1].rstrip('\n'))
 
-
+            # check if the name of participants is in the line
             if file_line[0] in output_file:
+                #if it is in it and it is the first time in the record,
+                #the number total_multiple will accumulate one time 
                 if output_file[file_line[0]][0] == 0:
                     Total_Multiple_record += 1
+                #if it is not the first time,
+                # the number total_multiple will accumulate one time
+                # the total distance will accumulate as well
                 output_file[file_line[0]][0] += 1
                 output_file[file_line[0]][1] += float(file_line[1].rstrip('\n'))
+                file_line[1] = output_file[file_line[0]][1]
 
-            output_file[file_line[0]] = [0, float(file_line[1].rstrip('\n'))]
+            output_file[file_line[0]] = [0, float(file_line[1])]
 
+            #recall the function Max_Min to calculate the max and min number of distance in the list 
             Max_Min(file_line)
 
 
    
     return
 
+#define the new function called Max_Min 
 def Max_Min(file_line):
     global Max_run
     global Min_run
@@ -80,7 +89,8 @@ def printKV(key,value,klen=0):
 
 
 
-# start
+# start the main process
+# first open the file name list to read 
 in_file = open("f2016_cs8_a3.data.txt", 'r')
 for line in in_file:
     file_name_list.append(line.rstrip("\n"))
@@ -90,12 +100,14 @@ while(len(file_name_list)>0):
 
     total_file_read +=1
     file_name = file_name_list.pop()
-    
+# read the last name in the list each time and remove the name from the list after finishing reading 
     file_object = open(file_name,'r')
 
     processFile(file_name)
     file_object.close()
 
+#create an output file reporting name of the participantn how many their name appears in the input files
+#and total distance run 
 f = open("f2016_cs8_wed25_a3.data.output.csv", 'w')
 for item, value in output_file.items():
     f.write(str(item)+','+str(value[0])+','+str(value[1])+'\n')
