@@ -1,0 +1,21 @@
+1. open the master input list to read the name of the file
+2. use the while loop to open each file in the list
+2.1
+inside each file,
+I first recall the processFile function to calculate the total number of lines and distance
+
+2.2
+I use the if statement to check it is the first to appear in the list or not.
+If it is the first time, the total_multiple_record will accumulate one time
+The total distance of each individual will also accumulate from its old distance
+
+2.3
+I also recall the Max_Min function to determine the max and min distance in the list
+
+3. After read individual line in the list, I create output csv file reporting name of participants,
+how many time the name appears in the input files and the total distance run
+
+
+
+
+
