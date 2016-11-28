@@ -1,12 +1,18 @@
+#
+# MN: header with user, instructor and course info is missing
+#
+
 #initialize global values
 total_total_counter = 0
 total_total_distance = 0
 
 #Define file processing function
 def processFile(fh):
+    # 
+    # MN: DO NOT USE global variables at all costs!!!
     #Declare global values
-    global total_total_counter
-    global total_total_distance
+    #global total_total_counter
+    #global total_total_distance
     file_object = open(file_name, 'r')
     printKV("File to b e read", fh, 25)
     #initialize values
@@ -17,9 +23,11 @@ def processFile(fh):
         partial_total_counter += 1
         partial_total_distance += float(line.split(",")[1].rstrip('\n'))
     file_object.close()
+    #
+    # MN: update the totals accumulators in the main loop
     #accumulate global values for all files
-    total_total_counter += partial_total_counter
-    total_total_distance += partial_total_distance
+    ##total_total_counter += partial_total_counter
+    ##total_total_distance += partial_total_distance
 
     return partial_total_counter, partial_total_distance
 
@@ -46,6 +54,8 @@ def printKV(key,value,klen=0):
 while(True):
     #I use input function to ask users to enter file names indefinitely
     file_name = input('Please type the file name\n')
+    #
+    # MN: condition1 does not equal to hit enter.
     #There are three types of ways users will write to declare they want to quit processing file
     condition1 = " "
     condition2 = "quit"
@@ -56,6 +66,9 @@ while(True):
        print("\nTotals")
        printKV("Total # of lines", total_total_counter, 25)
        printKV("Total distance run", total_total_distance, 25)
+       #
+       # MN: you also need to exit the loop
+       break
 
     #If file name does not satisfy any of these conditions, I call back file processing function to accumulate the data in each files
     #and call back print function to print partial total number of lines and partial total distance run
@@ -63,6 +76,12 @@ while(True):
         result = processFile(file_name)
         printKV('Partial Total # of Lines', result[0], 25)
         printKV('Partial Total distance run', result[1], 25)
+        #
+        # MN: I would keep the total tallies here
+        #     this way, you do not need to use globals
+        # accumulate global values for all files
+        total_total_counter += result[0]
+        total_total_distance += result[1]
 
 
 
