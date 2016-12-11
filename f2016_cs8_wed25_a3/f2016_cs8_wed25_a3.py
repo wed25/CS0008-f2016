@@ -1,8 +1,20 @@
+#
+# MN: header with user, instructor and course info is missing
+#
+# Notes:
+# MN: I strongly suggest to avoid globals and use argumnet passing in and out functions
+# MN: A little bit more comments
+#
 
 #create the empty list and dictionary 
 file_name_list = []
 Max_run = []
 Min_run = []
+# MN: you should describe what is the structure of this variable
+#     something like:
+#     element 0 is the runs counter
+#     element 1 is the total distance run by the participant
+# MN: be careful to correctly initialize it once you start populating it
 output_file = {}
 
 #initialize the variables 
@@ -14,6 +26,7 @@ Total_Multiple_record = 0
 
 #create the function to do the main processing 
 def processFile(fh):
+    # MN: I STRONGLY suggest to NOT use globals
     global total_line
     global total_distance
     global Total_Multiple_record
@@ -30,7 +43,9 @@ def processFile(fh):
             if file_line[0] in output_file:
                 #if it is in it and it is the first time in the record,
                 #the number total_multiple will accumulate one time 
-                if output_file[file_line[0]][0] == 0:
+                # MN: you should test for 1, that's the value we initialize it to
+                #if output_file[file_line[0]][0] == 0:
+                if output_file[file_line[0]][0] == 1:
                     Total_Multiple_record += 1
                 #if it is not the first time,
                 # the number total_multiple will accumulate one time
@@ -38,18 +53,23 @@ def processFile(fh):
                 output_file[file_line[0]][0] += 1
                 output_file[file_line[0]][1] += float(file_line[1].rstrip('\n'))
                 file_line[1] = output_file[file_line[0]][1]
-
-            output_file[file_line[0]] = [0, float(file_line[1])]
+            else:
+                # MN: when this branch is execute you have found the name once, so your counter should be initialize adequately
+                output_file[file_line[0]] = [1, float(file_line[1])]
+            
+            # MN: if you execute this statement in every iteration
+            #     you re-initialize it every time
+            #     You should place it in a else branch of the previous if
+            #output_file[file_line[0]] = [0, float(file_line[1])]
 
             #recall the function Max_Min to calculate the max and min number of distance in the list 
             Max_Min(file_line)
-
-
-   
+  
     return
 
 #define the new function called Max_Min 
 def Max_Min(file_line):
+    # MN: I STRONGLY suggest to NOT use globals
     global Max_run
     global Min_run
 
@@ -90,7 +110,8 @@ def printKV(key,value,klen=0):
 
 
 # start the main process
-# first open the file name list to read 
+# first open the file name list to read
+# MN: why not ask user for the master list file? 
 in_file = open("f2016_cs8_a3.data.txt", 'r')
 for line in in_file:
     file_name_list.append(line.rstrip("\n"))
@@ -100,9 +121,8 @@ while(len(file_name_list)>0):
 
     total_file_read +=1
     file_name = file_name_list.pop()
-# read the last name in the list each time and remove the name from the list after finishing reading 
+    # read the last name in the list each time and remove the name from the list after finishing reading 
     file_object = open(file_name,'r')
-
     processFile(file_name)
     file_object.close()
 
