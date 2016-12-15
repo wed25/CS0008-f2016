@@ -161,7 +161,7 @@ while (len(file_name_list) > 0):
 
 # create an output file reporting name of the participantn how many their name appears in the input files
 # and total distance run
-f = open("f2016_cs8_wed25_a3.data.output.csv", 'w')
+f = open("f2016_cs8_wed25_fp.data.output.csv", 'w')
 for item in participant_Arr:
     f.write(str(item.getName()) + ',' + str(item.runs) + ',' + str(item.getDistance) + '\n')
 
