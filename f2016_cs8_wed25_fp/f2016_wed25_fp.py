@@ -92,38 +92,26 @@ def List(file_line):
         for item in participant_Arr:
             # check if the name of participants is in the line
             if file_line[0] == item.getName():
-                # if it is in it and it is the first time in the record,
-                # the number total_multiple will accumulate one time
-                # MN: you should test for 1, that's the value we initialize it to
-                # if output_file[file_line[0]][0] == 0:
+                
                 if item.runs == 1:
                     Total_Multiple_record += 1
-                    # if it is not the first time,
-                    # the number total_multiple will accumulate one time
-                    # the total distance will accumulate as well
+                   
                 item.addDistance(float(file_line[1]))
                 return item
     File = Participants(file_line[0], float(file_line[1]), 1)
     participant_Arr.append(File)
     return File
 
-                    # MN: if you execute this statement in every iteration
-                    #     you re-initialize it every time
-                    #     You should place it in a else branch of the previous if
-                    # output_file[file_line[0]] = [0, float(file_line[1])]
-
-                    # recall the function Max_Min to calculate the max and min number of distance in the list
-           ####### create a participant when reading data each time.
-
+                   
 
 
 # define the new function called Max_Min
-def Max_Min(participant):##########  an object
-    # MN: I STRONGLY suggest to NOT use globals
+def Max_Min(participant):
+    
     global Max_run
     global Min_run
 
-    if Max_run is not None and Min_run is not None:   ####### getDistance, getNanme
+    if Max_run is not None and Min_run is not None:   
         if participant.getDistance() > Max_run.getDistance():
             Max_run = participant
         elif participant.getDistance() < Min_run.getDistance():
@@ -156,7 +144,7 @@ def printKV(key, value, klen=0):
 
 # start the main process
 # first open the file name list to read
-# MN: why not ask user for the master list file?
+
 masterFile = input("Please provide master file : ")
 in_file = open(masterFile, 'r')
 for line in in_file:
