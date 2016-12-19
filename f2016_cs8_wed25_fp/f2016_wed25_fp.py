@@ -1,3 +1,11 @@
+#
+# HEADER ???
+#
+
+# Notes
+# MN: DO NOT USE GLOBALS!!!!
+#
+
 import sys
 import time
 import subprocess
@@ -163,7 +171,9 @@ while (len(file_name_list) > 0):
 # and total distance run
 f = open("f2016_cs8_wed25_fp.data.output.csv", 'w')
 for item in participant_Arr:
-    f.write(str(item.getName()) + ',' + str(item.runs) + ',' + str(item.getDistance) + '\n')
+    # MN: object methods needs to be called like functions
+    #f.write(str(item.getName()) + ',' + str(item.runs) + ',' + str(item.getDistance) + '\n')
+    f.write(str(item.getName()) + ',' + str(item.runs) + ',' + str(item.getDistance()) + '\n')
 
 f.close()
 
